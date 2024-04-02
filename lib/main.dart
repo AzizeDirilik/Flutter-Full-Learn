@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_101/101/scaffold_learn.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_101/101/icon_learn.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,11 +14,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
-      home: const ScafflodLearnView(),
+      theme: ThemeData.dark().copyWith(
+          appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.transparent,
+        centerTitle: true,
+        elevation: 0,
+        systemOverlayStyle: SystemUiOverlayStyle.light,
+      )),
+      home: const IconLearnView(),
     );
   }
 }
-
