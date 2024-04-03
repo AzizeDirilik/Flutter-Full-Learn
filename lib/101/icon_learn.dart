@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class IconLearnView extends StatelessWidget {
- const  IconLearnView({super.key});
+  const IconLearnView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +19,7 @@ class IconLearnView extends StatelessWidget {
     );
   }
 }
-class IconSizes{
+
+class IconSizes {
   static double iconSmall = 50;
 }
