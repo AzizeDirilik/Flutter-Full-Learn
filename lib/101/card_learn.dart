@@ -17,7 +17,8 @@ class CardLearn extends StatelessWidget {
                   child:
                       Text('Merhaba', style: TextStyle(color: Colors.black))),
             ),
-          )
+          ),
+          
         ],
       ),
     );
@@ -28,13 +29,14 @@ class _CardCustom extends StatelessWidget {
   final Widget child;
   //static final  cardShape = RoundedRectangleBorder(borderRadius: BorderRadius.circular(20));
 
-  const _CardCustom({super.key, required this.child});
+  const _CardCustom({required this.child});
   @override
   Widget build(BuildContext context) {
     return Card(
       margin: CardMargin.cardMargin,
       //shape: cardShape,
       child: child,
+
     );
   }
 }
