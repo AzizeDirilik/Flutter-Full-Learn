@@ -64,6 +64,7 @@ class NoteDemosAppView extends StatelessWidget {
 
 class _Paragraph extends StatelessWidget {
   const _Paragraph(
+      // ignore: unused_element
       {Key? key, this.textAlign = TextAlign.center, required this.subTitle})
       : super(key: key);
   final TextAlign textAlign;
@@ -82,6 +83,7 @@ class _Paragraph extends StatelessWidget {
 
 class _TitleWidget extends StatelessWidget {
   const _TitleWidget({
+    // ignore: unused_element
     super.key,
     required this.title,
   });

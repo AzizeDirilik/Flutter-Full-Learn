@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_101/demos/note_demos_view.dart';
+import 'package:flutter_101/101/custom_widget_learn.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
             elevation: 0,
         
           )),
-      home: const NoteDemosAppView(),
+      home: const CustomWidgetLearn(),
     );
   }
 }
