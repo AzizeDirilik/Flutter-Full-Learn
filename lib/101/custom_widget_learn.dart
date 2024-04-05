@@ -41,6 +41,7 @@ class CustomWidgetLearn extends StatelessWidget {
 
 class _CustomFoodButton extends StatelessWidget {
   const _CustomFoodButton(
+      // ignore: unused_element
       {super.key, required this.title, required this.onPressed});
   final String title;
   final void Function() onPressed;
