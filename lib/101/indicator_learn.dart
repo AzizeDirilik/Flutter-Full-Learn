@@ -20,6 +20,7 @@ class IndicatorLearn extends StatelessWidget {
 
 class _AppbarRedCircularProgressInducator extends StatelessWidget {
   const _AppbarRedCircularProgressInducator({
+    // ignore: unused_element
     super.key,
   });
 

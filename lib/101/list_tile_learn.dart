@@ -30,6 +30,7 @@ class ListTileLearn extends StatelessWidget {
 
 class _ListTile extends StatelessWidget {
   const _ListTile({
+    // ignore: unused_element
     super.key,
     required this.title,
     required this.subtitle,
