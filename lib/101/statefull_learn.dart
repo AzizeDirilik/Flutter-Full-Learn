@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_101/product/counter_hello_button.dart';
+import 'package:flutter_101/product/language/language_items.dart';
 
 class StatefullLearn extends StatefulWidget {
   const StatefullLearn({super.key});
@@ -22,16 +24,24 @@ class _StatefullLearnState extends State<StatefullLearn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Center(
-        child: Text(_countValue.toString()),
+      appBar: AppBar(
+        title: const Text(LanguageItems.welcomeTitle),
+      ),
+      body: Column(
+        children: [
+          Center(
+            child: Text(
+              _countValue.toString(),
+              style: Theme.of(context).textTheme.displayMedium,
+            ),
+          ),
+          const Placeholder(),
+          const CounterHelloButton()
+        ],
       ),
       floatingActionButton: Row(
         mainAxisSize: MainAxisSize.min,
-        children: [
-          _incrementButton(),
-          _deincrementButton()
-        ],
+        children: [_incrementButton(), _deincrementButton()],
       ),
     );
   }
@@ -49,6 +59,7 @@ class _StatefullLearnState extends State<StatefullLearn> {
   }
 
   FloatingActionButton _incrementButton() {
+    print('BURDA');
     return FloatingActionButton(
         onPressed: () {
           _updateCounter(true);

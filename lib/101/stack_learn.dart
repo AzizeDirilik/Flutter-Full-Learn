@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class StacLearn extends StatelessWidget {
-  const StacLearn({super.key});
+class StackLearn extends StatelessWidget {
+  const StackLearn({super.key});
 
   @override
   Widget build(BuildContext context) {
