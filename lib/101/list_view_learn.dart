@@ -34,9 +34,32 @@ class _ListViewLearnState extends State<ListViewLearn> {
                   _HorizontalContainer(color: Colors.white),
                   _HorizontalContainer(color: Colors.purple),
                 ])),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.close))
+            IconButton(onPressed: () {}, icon: const Icon(Icons.close)),
+            FittedBox(
+              child: Text(
+                LanguageItems.welcomeTitle,
+                style: Theme.of(context).textTheme.bodySmall,
+                maxLines: 1,
+              ),
+            ),
+            const _VerticalContainer(color: Colors.blue),
+            const Divider(),
+            SizedBox(
+                height: 300,
+                child:
+                    ListView(scrollDirection: Axis.horizontal, children: const [
+                  _HorizontalContainer(color: Colors.pink),
+                  _HorizontalContainer(color: Colors.white),
+                  _HorizontalContainer(color: Colors.pink),
+                  _HorizontalContainer(color: Colors.white),
+                  _HorizontalContainer(color: Colors.purple),
+                ])),
+            IconButton(onPressed: () {}, icon: const Icon(Icons.close)),
+            const _ListDemo()
           ],
-        ));
+        ),
+        
+        );
   }
 }
 
@@ -70,5 +93,30 @@ class _VerticalContainer extends StatelessWidget {
       color: color,
       height: 300,
     );
+  }
+}
+class _ListDemo extends StatefulWidget {
+  const _ListDemo({super.key});
+
+  @override
+  State<_ListDemo> createState() => __ListDemoState();
+}
+
+
+class __ListDemoState extends State<_ListDemo> {
+  @override
+  void initState() {
+    super.initState();
+    print('Burada');
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    print('Exit');
+  }
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }
