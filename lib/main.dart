@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_101/101/navigation_learn.dart';
 import 'package:flutter_101/demos/my_collections_demos.dart';
 
 
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
             centerTitle: true,
             elevation: 0,
           )),
-      home: const MyCollectionDemos()
+      home: const NavigationLearn()
     );
   }
 }

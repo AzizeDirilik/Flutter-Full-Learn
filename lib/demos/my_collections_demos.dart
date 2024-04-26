@@ -40,30 +40,34 @@ class _CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: PaddingUtility().paddingBottom,
-      child: Padding(
-        padding: PaddingUtility().paddingTop,
-        child: Column(
-          children: [
-            Expanded(
-                child: Image.network(
-              _model.imagePath,
-            )),
-            Padding(
-              padding:
-                  PaddingUtility().paddingBottom + PaddingUtility().paddingTop,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    _model.title,
-                  ),
-                  Text('${_model.price} eth')
-                ],
+    return SizedBox(
+      height: 300,
+      child: Card(
+        margin: PaddingUtility().paddingBottom,
+        child: Padding(
+          padding: PaddingUtility().paddingTop,
+          child: Column(
+            children: [
+              Expanded(
+                  child: Image.network(
+                _model.imagePath,
+              )),
+              Padding(
+                padding: PaddingUtility().paddingBottom +
+                    PaddingUtility().paddingTop +
+                    PaddingUtility().paddingHorizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      _model.title,
+                    ),
+                    Text('${_model.price} eth')
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
