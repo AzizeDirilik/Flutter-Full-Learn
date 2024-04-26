@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_101/101/list_view_builder.dart';
+import 'package:flutter_101/demos/my_collections_demos.dart';
 
 
 void main() {
@@ -21,15 +21,15 @@ class MyApp extends StatelessWidget {
             color: Colors.white,
           ),
           cardTheme: CardTheme(
-              color: Colors.grey[800],
+              color: Color.fromARGB(255, 55, 54, 54),
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10))),
+                  borderRadius: BorderRadius.circular(20))),
           appBarTheme: const AppBarTheme(
             backgroundColor: Colors.transparent,
             centerTitle: true,
             elevation: 0,
           )),
-      home: const ListViewBuilder()
+      home: const MyCollectionDemos()
     );
   }
 }
