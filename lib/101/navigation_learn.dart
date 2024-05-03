@@ -42,6 +42,7 @@ class _NavigationLearnState extends State<NavigationLearn>
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
+          // ignore: unused_local_variable
           final response = await navigateToWidgetNormal<bool>(
               context, const NavigateLearnDetail());
         },

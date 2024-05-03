@@ -22,7 +22,7 @@ class _ColorLifeCycleViewState extends State<ColorLifeCycleView> {
         }, icon: const Icon(Icons.clear))],
       ),
       body:  Column(
-        children: [Spacer(), Expanded(child: ColorDemos(initialColor: _backgroundColor))],
+        children: [const Spacer(), Expanded(child: ColorDemos(initialColor: _backgroundColor))],
       ),
     );
   }
