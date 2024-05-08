@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_101/202/model_learn_view.dart';
+import 'package:flutter_101/202/service/service_learn_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,6 +32,6 @@ class MyApp extends StatelessWidget {
               centerTitle: true,
               elevation: 0,
             )),
-        home: const ModelLearnView());
+        home: const ServiceLearnView());
   }
 }
