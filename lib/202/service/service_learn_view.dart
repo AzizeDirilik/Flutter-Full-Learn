@@ -4,36 +4,36 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_101/202/service/post_model.dart';
 
-class ServiceLearnView extends StatefulWidget {
-  const ServiceLearnView({super.key});
+class ServiceLearn extends StatefulWidget {
+  const ServiceLearn({super.key});
 
   @override
-  State<ServiceLearnView> createState() => _ServiceLearnViewState();
+  State<ServiceLearn> createState() => _ServiceLearnState();
 }
 
-class _ServiceLearnViewState extends State<ServiceLearnView> {
+class _ServiceLearnState extends State<ServiceLearn> {
+  
   List<PostModel>? _items;
   String? name;
   bool _isLoading = false;
 
-  @override
+  void _changeLoading() {
+    _isLoading = !_isLoading;
+  }
+
+  
   void initState() {
     super.initState();
+    name = 'as';
+
     fetchPostItems();
-    name = 'Home';
   }
 
-  void _changeLoading() {
-    setState(() {
-      _isLoading = !_isLoading;
-    });
-  }
-
-  void fetchPostItems() async {
+  Future<void> fetchPostItems() async {
     _changeLoading();
-
     final response =
         await Dio().get('https://jsonplaceholder.typicode.com/posts');
+
     if (response.statusCode == HttpStatus.ok) {
       final _datas = response.data;
 
@@ -50,25 +50,35 @@ class _ServiceLearnViewState extends State<ServiceLearnView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          _isLoading
-              ? const CircularProgressIndicator.adaptive()
-              : const SizedBox.shrink()
-        ],
         title: Text(name ?? ''),
+        actions: [_isLoading ? CircularProgressIndicator() : SizedBox.shrink()] ,
       ),
       body: ListView.builder(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
+        padding: EdgeInsets.symmetric(horizontal: 10),
         itemCount: _items?.length ?? 0,
         itemBuilder: (context, index) {
-          return Card(
-            margin: const EdgeInsets.only(bottom: 10),
-            child: ListTile(
-              title: Text(_items?[index].title ?? ''),
-              subtitle: Text(_items?[index].body ?? ''),
-            ),
-          );
+          return _PostCard(model: _items?[index]);
         },
+      ),
+    );
+  }
+}
+
+class _PostCard extends StatelessWidget {
+   const _PostCard({
+    super.key,
+    required PostModel? model,
+  }) : _model = model;
+
+  final PostModel? _model;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: EdgeInsets.only(bottom: 20),
+      child: ListTile(
+        title: Text(_model?.title ?? ''),
+        subtitle: Text(_model?.body ?? ''),
       ),
     );
   }
