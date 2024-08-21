@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, unused_field
 class PostModel1 {
   int? userId;
   int? id;
@@ -42,7 +42,7 @@ class PostModel5 {
   final String _title;
   final String _body;
 
-int get userId => userId;
+int get userId => _userId;
   PostModel5(
       {required int userId,
       required int id,
@@ -107,7 +107,7 @@ void updateBody(String? data) {
     body = data;
   }
 }
-  
+
 
   PostModel8 copyWith({
     int? userId,

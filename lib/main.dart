@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_101/202/service/service_learn_view.dart';
+import 'package:flutter_101/202/service/service_post_learn_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,10 +16,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData.dark().copyWith(
             floatingActionButtonTheme: FloatingActionButtonThemeData(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadiusDirectional.circular(50)
-              )
-            ),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadiusDirectional.circular(50))),
             progressIndicatorTheme: const ProgressIndicatorThemeData(
               circularTrackColor: Colors.lightBlue,
               color: Colors.white,
@@ -32,6 +31,6 @@ class MyApp extends StatelessWidget {
               centerTitle: true,
               elevation: 0,
             )),
-        home: const ServiceLearn());
+        home: const ServicePostLearn());
   }
 }
