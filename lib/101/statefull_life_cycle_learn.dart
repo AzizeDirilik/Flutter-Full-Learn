@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class StatefullLifeCycle extends StatefulWidget {
@@ -15,26 +16,35 @@ class _StatefullLifeCycleState extends State<StatefullLifeCycle> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    print('a');
+    if (kDebugMode) {
+      print('a');
+    }
   }
 
   @override
   void didUpdateWidget(covariant StatefullLifeCycle oldWidget) {
     super.didUpdateWidget(oldWidget);
-    print('b');
+    if (kDebugMode) {
+      print('b');
+    }
     if (oldWidget.message != widget.message) {
       _message = widget.message;
       setState(() {});
-      print('d');
+      if (kDebugMode) {
+        print('d');
+      }
     }
   }
 
+  @override
   void initState() {
     super.initState();
     _message = widget.message;
     _isOdd = widget.message.length.isOdd;
     _computeName();
-    print('c');
+    if (kDebugMode) {
+      print('c');
+    }
   }
 
   void _computeName() {

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_101/product/counter_hello_button.dart';
 import 'package:flutter_101/product/language/language_items.dart';
@@ -59,7 +60,9 @@ class _StatefullLearnState extends State<StatefullLearn> {
   }
 
   FloatingActionButton _incrementButton() {
-    print('BURDA');
+    if (kDebugMode) {
+      print('BURDA');
+    }
     return FloatingActionButton(
         onPressed: () {
           _updateCounter(true);

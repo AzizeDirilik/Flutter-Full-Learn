@@ -62,7 +62,6 @@ enum _MyColors { red, blue, yellow }
 
 class _ColorContainer extends StatelessWidget {
   const _ColorContainer({
-    super.key,
     required this.color,
   });
   final Color color;

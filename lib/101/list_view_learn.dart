@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_101/product/language/language_items.dart';
 
@@ -65,7 +66,6 @@ class _ListViewLearnState extends State<ListViewLearn> {
 
 class _HorizontalContainer extends StatelessWidget {
   const _HorizontalContainer({
-    super.key,
     required this.color,
   });
   final Color color;
@@ -81,7 +81,6 @@ class _HorizontalContainer extends StatelessWidget {
 
 class _VerticalContainer extends StatelessWidget {
   const _VerticalContainer({
-    super.key,
     required this.color,
   });
 
@@ -96,7 +95,7 @@ class _VerticalContainer extends StatelessWidget {
   }
 }
 class _ListDemo extends StatefulWidget {
-  const _ListDemo({super.key});
+  const _ListDemo();
 
   @override
   State<_ListDemo> createState() => __ListDemoState();
@@ -107,13 +106,17 @@ class __ListDemoState extends State<_ListDemo> {
   @override
   void initState() {
     super.initState();
-    print('Burada');
+    if (kDebugMode) {
+      print('Burada');
+    }
   }
 
   @override
   void dispose() {
     super.dispose();
-    print('Exit');
+    if (kDebugMode) {
+      print('Exit');
+    }
   }
   @override
   Widget build(BuildContext context) {

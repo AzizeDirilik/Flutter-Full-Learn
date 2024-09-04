@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class ListViewBuilder extends StatefulWidget {
@@ -19,7 +20,9 @@ class _ListViewBuilderState extends State<ListViewBuilder> {
           );
         },
         itemBuilder: (context, index) {
-          print(index);
+          if (kDebugMode) {
+            print(index);
+          }
           return SizedBox(
             height: 200,
             child: Column(
