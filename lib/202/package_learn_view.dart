@@ -17,12 +17,19 @@ class _PackageLearnViewState extends State<PackageLearnView> with LaunchMixin {
     return Scaffold(
         appBar: AppBar(),
         floatingActionButton: FloatingActionButton(
-            child: const Icon(Icons.add),
+            backgroundColor:
+                Theme.of(context).buttonTheme.colorScheme?.onPrimary,
             onPressed: () {
               launchURL('https://pub.dev/packages/url_launcher');
             }),
-        body: LoadingBar1(
-          size: _loadingBarSize,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text('data'),
+            LoadingBar1(
+              size: _loadingBarSize,
+            ),
+          ],
         ));
   }
 }

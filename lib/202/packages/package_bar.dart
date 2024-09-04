@@ -9,7 +9,7 @@ class LoadingBar1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SpinKitSquareCircle(
+    return SpinKitWave(
       color: Colors.green,
       size: size ?? _defaultSize,
     );
