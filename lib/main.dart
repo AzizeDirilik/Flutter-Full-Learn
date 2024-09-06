@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_101/202/image_learn_202.dart';
 import 'package:flutter_101/202/theme/light_theme.dart';
-import 'package:flutter_101/202/theme_learn_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,6 +32,6 @@ class MyApp extends StatelessWidget {
         //       centerTitle: true,
         //       elevation: 0,
         //     )),
-        home: const ThemeLearnView());
+        home: const ImageLearn202());
   }
 }
