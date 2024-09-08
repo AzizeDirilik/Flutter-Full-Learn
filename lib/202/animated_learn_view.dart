@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_101/202/image_learn_202.dart';
 
+const double kZero = 0;
+
 class AnimatedLearnView extends StatefulWidget {
   const AnimatedLearnView({super.key});
 
@@ -8,12 +10,28 @@ class AnimatedLearnView extends StatefulWidget {
   State<AnimatedLearnView> createState() => _AnimatedLearnViewState();
 }
 
-class _AnimatedLearnViewState extends State<AnimatedLearnView> {
-  bool _isvisible = false;
+class _AnimatedLearnViewState extends State<AnimatedLearnView>
+    with TickerProviderStateMixin {
+  bool _isVisible = false;
+  bool _isOpacity = false;
+  late AnimationController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller =
+        AnimationController(vsync: this, duration: _DurationItems.durationLow);
+  }
 
   void _changeVisible() {
     setState(() {
-      _isvisible = !_isvisible;
+      _isVisible = !_isVisible;
+    });
+  }
+
+  void _changeOpacity() {
+    setState(() {
+      _isOpacity = !_isOpacity;
     });
   }
 
@@ -23,43 +41,75 @@ class _AnimatedLearnViewState extends State<AnimatedLearnView> {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             _changeVisible();
+            controller.animateTo(_isVisible ? 1 : kZero);
           },
         ),
-        appBar: AppBar(
-          centerTitle: true,
-          title: AnimatedImageWidget(isvisible: _isvisible),
-        ),
-        body: Text(
-          'Animated',
-          style: context.textTheme(Colors.pink).headlineLarge,
+        appBar: AppBar(centerTitle: true, title: _titleAnimated()),
+        body: Column(
+          children: [
+            ListTile(
+              title: AnimatedOpacity(
+                duration: _DurationItems.durationLow,
+                opacity: _isOpacity ? kZero : 1,
+                child: const Text('data'),
+              ),
+              trailing: IconButton(
+                  onPressed: () {
+                    _changeOpacity();
+                  },
+                  icon: const Icon(Icons.satellite)),
+            ),
+            AnimatedDefaultTextStyle(
+              style: (_isVisible
+                      ? context.textTheme().displayMedium
+                      : context.textTheme().bodyLarge) ??
+                  const TextStyle(),
+              duration: _DurationItems.durationLow,
+              child: const Text(
+                'Animated',
+              ),
+            ),
+            AnimatedIcon(icon: AnimatedIcons.menu_arrow, progress: controller),
+            AnimatedContainer(
+              duration: _DurationItems.durationLow,
+              height:
+                  _isVisible ? kZero : MediaQuery.of(context).size.width * 0.2,
+              width: MediaQuery.of(context).size.height * 0.2,
+              color: Colors.purple,
+              margin: const EdgeInsets.all(5),
+            ),
+            Expanded(
+              child: AnimatedList(
+                itemBuilder: (context, index, animation) {
+                  return const Text('data');
+                },
+              ),
+            ),
+            const Expanded(
+                child: Stack(
+              children: [
+                AnimatedPositioned(
+                    top: 5,
+                    duration: _DurationItems.durationLow,
+                    child: Text('selam'))
+              ],
+            ))
+          ],
         ));
   }
-}
 
-class AnimatedImageWidget extends StatelessWidget {
-  const AnimatedImageWidget({
-    super.key,
-    required bool isvisible,
-  }) : _isvisible = isvisible;
-
-  final bool _isvisible;
-
-  @override
-  Widget build(BuildContext context) {
+  AnimatedCrossFade _titleAnimated() {
     return AnimatedCrossFade(
         firstChild: ImagePaths.book.toWidget(height: 50),
         secondChild: const SizedBox.shrink(),
         crossFadeState:
-            _isvisible ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+            _isVisible ? CrossFadeState.showFirst : CrossFadeState.showSecond,
         duration: _DurationItems.durationLow);
   }
 }
 
 extension BuildContextExtention on BuildContext {
-  TextTheme textTheme(Color? color) {
-    if (color != null) {
-      return Theme.of(this).textTheme.apply(displayColor: color);
-    }
+  TextTheme textTheme() {
     return Theme.of(this).textTheme;
   }
 }
